@@ -7,7 +7,6 @@ function callWritePassword(){
 
 // Write password to the #password input
 function writePassword() {
-  var passwordText = document.querySelector("#password");
 
   var windowLength = window.prompt("Enter the desired length of your password. \nPassword must be between 8 and 128 characters in length.");
 
@@ -93,9 +92,25 @@ function writePassword() {
 
     console.log(characterList);
     //**********************chose random value from the compiled list of characters 
-    for (var i = 0, n = characterList.length; i < windowLength -4; ++i){
+    for (var i = 0, n = characterList.length; i < windowLength ; ++i){
       password += characterList.charAt(Math.floor(Math.random() * n));
     }
+
+    
+    //check to insure at least one of each character
+
+    // if (password.match(lowercaseLetters)){
+    //   console.log("help1");
+    // }
+    // if (password.match(uppercaseLetters)){
+    //   console.log("help2");
+    // }
+    // if (password !== numbers){
+    //   console.log("help3");
+    // }
+    // if (password !== specialCharacters){
+    //   console.log("help4");
+    // }
 
 
     //push the password value to show on the page.
