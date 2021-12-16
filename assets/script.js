@@ -78,7 +78,6 @@ function writePassword() {
         characterList = [];
 
     // ******************************************Set final array based on input values
-
     if (windowLowercase){
       characterList += lowercaseLetters;
     }
@@ -93,12 +92,12 @@ function writePassword() {
     }
 
     console.log(characterList);
-   
+    //**********************chose random value from the compiled list of characters 
     for (var i = 0, n = characterList.length; i < windowLength; ++i){
       password += characterList.charAt(Math.floor(Math.random() * n));
     }
-
-    document.getElementById("password").value = password;
+    //push the password value to show on the page.
+    document.getElementById("password").value = password; 
     console.log(password);
     return ;
   }
