@@ -93,9 +93,11 @@ function writePassword() {
 
     console.log(characterList);
     //**********************chose random value from the compiled list of characters 
-    for (var i = 0, n = characterList.length; i < windowLength; ++i){
+    for (var i = 0, n = characterList.length; i < windowLength -4; ++i){
       password += characterList.charAt(Math.floor(Math.random() * n));
     }
+
+
     //push the password value to show on the page.
     document.getElementById("password").value = password; 
     console.log(password);
