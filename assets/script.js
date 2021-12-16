@@ -29,11 +29,9 @@ function writePassword() {
     alertOne();
   } 
 
-
-  //***********************************Create pop up messages, and fill out details of previous answer. */
-
-
   function generatePassword(){
+
+    //***********************************Create pop up messages, and fill out details of previous answer. */
     // ask for lowercase letters
     var windowLowercase = window.confirm("Would you like the password to contain lowercase letters?");
     //set variable depending on answer
@@ -105,23 +103,6 @@ function writePassword() {
     for (var i = 0, n = characterList.length; i < windowLength ; ++i){
       password += characterList.charAt(Math.floor(Math.random() * n));
     }
-
-    
-    //check to insure at least one of each character
-
-    // if (password.match(lowercaseLetters)){
-    //   console.log("help1");
-    // }
-    // if (password.match(uppercaseLetters)){
-    //   console.log("help2");
-    // }
-    // if (password !== numbers){
-    //   console.log("help3");
-    // }
-    // if (password !== specialCharacters){
-    //   console.log("help4");
-    // }
-
 
     //push the password value to show on the page.
     document.getElementById("password").value = password; 
