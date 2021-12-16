@@ -1,12 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
+function callWritePassword(){
+  writePassword();
+}
+
 // Write password to the #password input
 function writePassword() {
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-  // passwordText.value = password;
+  //push password to html
+  function setPassword (){
+    passwordText.textContent = password;
+  }
+  passwordText.value = password;
 
   var windowLength = window.prompt("Enter the desired length of your password. \nPassword must be between 8 and 128 characters in length.");
 
@@ -62,11 +71,19 @@ function writePassword() {
   }else{
     special = "You chose not to have numbers in your password." ;
   }
+
+  function generatePassword (){
+    var numbers = "0123456789";
+    var lowercaseLetters = "qwertyuiopasdfghjklzxcvbnm";
+    var uppercaseLetters = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    var specialCharacters = "'`~!@#$%^&*()_+{}|<>?-=[]\/,.:" ;
+
+    var randomNumber = Math.floor(Math.random() * windowLength);
+    
+  }
+  
 }
 
-function callWritePassword(){
-  writePassword();
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
