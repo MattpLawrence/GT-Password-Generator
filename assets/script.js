@@ -29,45 +29,50 @@ function writePassword() {
     alertOne();
   } 
 
-  // ask for lowercase letters
-  var windowLowercase = window.confirm("Would you like the password to contain lowercase letters?");
-  //set variable depending on answer
-  if ( windowLowercase === true){
-    var lowercase = "You chose to have lowercase letters in your password." ;
-  }else{
-    lowercase = "You chose not to have lowercase letters in your password." ;
-  }
-  //ask for uppercase letters
-  var windowUppercase = window.confirm(lowercase +"\n\nWould you like the password to contain uppercase letters?");
-  //set variable depending on answer
-  if ( windowUppercase === true){
-    var uppercase = "You chose to have uppercase letters in your password." ;
-  }else{
-    uppercase = "You chose not to have uppercase letters in your password." ;
-  }
 
-  //ask for numeric values
-  var windowNumbers = window.confirm(uppercase + "\n\nWould you like the password to contain numbers?")
-  //set variable depending on answer
-  if ( windowNumbers === true){
-    var numbers = "You chose to have numbers in your password." ;
-  }else{
-    numbers = "You chose not to have numbers in your password." ;
-  }
-
-  var windowSpecial = window.confirm(numbers + "\n\nWould you like the password to contain and special characters?")
-  //set variable depending on answer
-  if ( windowSpecial === true){
-    var special = "You chose to have numbers in your password." ;
-  }else{
-    special = "You chose not to have numbers in your password." ;
-  }
-
-  var length = windowLength // setting new var for naming convention
+  //***********************************Create pop up messages, and fill out details of previous answer. */
 
 
-  // ***************************************password generation function*
-  function generatePassword (){
+  function generatePassword(){
+    // ask for lowercase letters
+    var windowLowercase = window.confirm("Would you like the password to contain lowercase letters?");
+    //set variable depending on answer
+    if ( windowLowercase === true){
+      var lowercase = "You chose to have lowercase letters in your password." ;
+    }else{
+      lowercase = "You chose not to have lowercase letters in your password." ;
+    }
+
+    //ask for uppercase letters
+    var windowUppercase = window.confirm(lowercase +"\n\nWould you like the password to contain uppercase letters?");
+    //set variable depending on answer
+    if ( windowUppercase === true){
+      var uppercase = "You chose to have uppercase letters in your password." ;
+    }else{
+      uppercase = "You chose not to have uppercase letters in your password." ;
+    }
+
+    //ask for numeric values
+    var windowNumbers = window.confirm(uppercase + "\n\nWould you like the password to contain numbers?")
+    //set variable depending on answer
+    if ( windowNumbers === true){
+      var numbers = "You chose to have numbers in your password." ;
+    }else{
+      numbers = "You chose not to have numbers in your password." ;
+    }
+
+    //ask for special characters
+    var windowSpecial = window.confirm(numbers + "\n\nWould you like the password to contain and special characters?")
+
+    //set variable depending on answer
+    if ( windowSpecial === true){
+      var special = "You chose to have numbers in your password." ;
+    }else{
+      special = "You chose not to have numbers in your password." ;
+    }
+  
+// ***************************************password generation function***********
+ 
     //**************************Set character sets */
     var numbers = "0123456789",
         lowercaseLetters = "qwertyuiopasdfghjklzxcvbnm",
@@ -88,6 +93,11 @@ function writePassword() {
     }
     if(windowSpecial){
       characterList += specialCharacters;
+    }
+  //**********************Check to make sure user selected at least one type of character */
+    if( characterList.length === 0){
+      window.alert("You must select at least one type of character.");
+      generatePassword(); //go back to first character choice prompt
     }
 
     console.log(characterList);
