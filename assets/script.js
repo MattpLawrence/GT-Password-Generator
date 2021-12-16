@@ -1,21 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
 function callWritePassword(){
   writePassword();
 }
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  //push password to html
-  function setPassword (){
-    passwordText.textContent = password;
-  }
-  passwordText.value = password;
 
   var windowLength = window.prompt("Enter the desired length of your password. \nPassword must be between 8 and 128 characters in length.");
 
@@ -72,15 +64,46 @@ function writePassword() {
     special = "You chose not to have numbers in your password." ;
   }
 
-  function generatePassword (){
-    var numbers = "0123456789";
-    var lowercaseLetters = "qwertyuiopasdfghjklzxcvbnm";
-    var uppercaseLetters = "QWERTYUIOPASDFGHJKLZXCVBNM";
-    var specialCharacters = "'`~!@#$%^&*()_+{}|<>?-=[]\/,.:" ;
+  var length = windowLength // setting new var for naming convention
 
-    var randomNumber = Math.floor(Math.random() * windowLength);
-    
+
+  // ***************************************password generation function*
+  function generatePassword (){
+    //**************************Set character sets */
+    var numbers = "0123456789",
+        lowercaseLetters = "qwertyuiopasdfghjklzxcvbnm",
+        uppercaseLetters = "QWERTYUIOPASDFGHJKLZXCVBNM",
+        specialCharacters = "'`~!@#$%^&*()_+{}|<>?-=[]\/,.:",
+        password = "",
+        characterList = [];
+
+    // ******************************************Set final array based on input values
+
+    if (windowLowercase){
+      characterList += lowercaseLetters;
+    }
+    if (windowUppercase){
+      characterList += uppercaseLetters;
+    }
+    if( windowNumbers){
+      characterList += numbers;
+    }
+    if(windowSpecial){
+      characterList += specialCharacters;
+    }
+
+    console.log(characterList);
+   
+    for (var i = 0, n = characterList.length; i < windowLength; ++i){
+      password += characterList.charAt(Math.floor(Math.random() * n));
+    }
+
+    document.getElementById("password").value = password;
+    console.log(password);
+    return ;
   }
+
+  generatePassword();
   
 }
 
