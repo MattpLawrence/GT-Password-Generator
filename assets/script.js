@@ -1,5 +1,11 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+//**************************Set character sets */
+var generateBtn = document.querySelector("#generate"),
+    numbers = "0123456789",
+    lowercaseLetters = "qwertyuiopasdfghjklzxcvbnm",
+    uppercaseLetters = "QWERTYUIOPASDFGHJKLZXCVBNM",
+    specialCharacters = "'`~!@#$%^&*()_+{}|<>?-=[]\/,.:",
+    characterList = [];
+
 
 function callWritePassword(){
   writePassword();
@@ -37,6 +43,7 @@ function writePassword() {
     //set variable depending on answer
     if ( windowLowercase === true){
       var lowercase = "You chose to have lowercase letters in your password." ;
+      characterList += lowercaseLetters; //add lowercase to character bank
     }else{
       lowercase = "You chose not to have lowercase letters in your password." ;
     }
@@ -46,6 +53,7 @@ function writePassword() {
     //set variable depending on answer
     if ( windowUppercase === true){
       var uppercase = "You chose to have uppercase letters in your password." ;
+      characterList += uppercaseLetters;
     }else{
       uppercase = "You chose not to have uppercase letters in your password." ;
     }
@@ -54,44 +62,25 @@ function writePassword() {
     var windowNumbers = window.confirm(uppercase + "\n\nWould you like the password to contain numbers?")
     //set variable depending on answer
     if ( windowNumbers === true){
-      var numbers = "You chose to have numbers in your password." ;
+      var windowNumbers = "You chose to have numbers in your password." ;
+      characterList += numbers;
     }else{
       numbers = "You chose not to have numbers in your password." ;
     }
 
     //ask for special characters
-    var windowSpecial = window.confirm(numbers + "\n\nWould you like the password to contain and special characters?")
+    var windowSpecial = window.confirm(windowNumbers + "\n\nWould you like the password to contain and special characters?")
 
     //set variable depending on answer
     if ( windowSpecial === true){
       var special = "You chose to have numbers in your password." ;
+      characterList += specialCharacters;
     }else{
       special = "You chose not to have numbers in your password." ;
     }
-  
-// ***************************************password generation function***********
- 
-    //**************************Set character sets */
-    var numbers = "0123456789",
-        lowercaseLetters = "qwertyuiopasdfghjklzxcvbnm",
-        uppercaseLetters = "QWERTYUIOPASDFGHJKLZXCVBNM",
-        specialCharacters = "'`~!@#$%^&*()_+{}|<>?-=[]\/,.:",
-        password = "",
-        characterList = [];
 
-    // ******************************************Set final array based on input values
-    if (windowLowercase){
-      characterList += lowercaseLetters;
-    }
-    if (windowUppercase){
-      characterList += uppercaseLetters;
-    }
-    if( windowNumbers){
-      characterList += numbers;
-    }
-    if(windowSpecial){
-      characterList += specialCharacters;
-    }
+    password = "";
+
   //**********************Check to make sure user selected at least one type of character */
     if( characterList.length === 0){
       window.alert("You must select at least one type of character.");
