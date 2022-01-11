@@ -2,7 +2,7 @@
 GT Homework number 3, JS password generator
 
 ## Host Location:
-https://mattplawrence.github.io/GT-Password-Generator/
+https://mattplawrence.github.io/Password-Generator/
 
 ## Purpose:
 The purpose of this project was to create a password generator that takes user input and outputs a password according to user selections.
